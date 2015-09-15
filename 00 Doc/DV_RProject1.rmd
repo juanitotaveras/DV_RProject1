@@ -1,18 +1,18 @@
 ---
 title: "DV_RProject1"
-author: "Juanito, Kayne, Zareen"
+author: "Kayne Khoury, Zareen Khayrattee, Juanito Taveras"
 date: "September 13, 2015"
 output: html_document
 ---
 ----------------
 
-<<<<<<< HEAD
+
 
 DV_RProject1
 ----------------
 
-![](./plot1.jpg)
-=======
+================
+
 #Plot 1
 ```
 #SQL: select * from titanic
@@ -158,7 +158,7 @@ ggplot() +
 
 ![](./Plot_6.png)
 
-<<<<<<< HEAD
+
 =======
 
 # Summary of Titanic Data
@@ -206,4 +206,3 @@ PASSENGERID       SURVIVED          PCLASS                                      
 
 ```
  
->>>>>>> branch 'master' of https://github.com/juanitotaveras/DV_RProject1.git
