@@ -1,10 +1,17 @@
 ---
 title: "DV_RProject1"
-author: "Juanito, Kayne, Zareen"
+author: "Kayne Khoury, Zareen Khayrattee, Juanito Taveras"
 date: "September 13, 2015"
 output: html_document
 ---
 ----------------
+
+
+
+DV_RProject1
+----------------
+
+================
 
 #Plot 1
 ```
@@ -30,6 +37,7 @@ ggplot() +
   
 ![](./Plot_1.png)
 
+
 #Plot 2  
 ```
 #SQL: select * from titanic where sex is not null
@@ -51,7 +59,7 @@ ggplot() +
         position=position_jitter(width=0.3, height=0)
   )
 ```  
-![](./plot_2.png)
+![](./Plot_2.png)
 
 #Plot 3
 ```
@@ -150,6 +158,8 @@ ggplot() +
 
 ![](./Plot_6.png)
 
+
+=======
 
 # Summary of Titanic Data
 ```
