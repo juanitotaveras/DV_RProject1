@@ -1,28 +1,17 @@
----
-title: "DV_RProject1"
-author: "Juanito, Kayne, Zareen"
-date: "September 13, 2015"
-output: html_document
----
-----------------
+require("jsonlite")
+require("RCurl")
+# Change the USER and PASS below to be your UTEid
 
-<<<<<<< HEAD
+df <- data.frame(fromJSON(getURL(URLencode('129.152.144.84:5001/rest/native/?query="select * from titanic"'),httpheader=c(DB='jdbc:oracle:thin:@129.152.144.84:1521/PDBF15DV.usuniversi01134.oraclecloud.internal', USER='cs329e_kdk745', PASS='orcl_kdk745', MODE='native_mode', MODEL='model', returnDimensions = 'False', returnFor = 'JSON'), verbose = TRUE), ))
 
-DV_RProject1
-----------------
-
-![](./plot1.jpg)
-=======
-#Plot 1
-```
-#SQL: select * from titanic
-
-#Plot:
-
+# Graph 1
 ggplot() + 
   coord_cartesian() + 
   scale_x_continuous() +
   scale_y_continuous() +
+  #facet_wrap(~SURVIVED) +
+  #facet_grid(.~SURVIVED, labeller=label_both) + # Same as facet_wrap but with a label.
+  #facet_grid(PCLASS~SURVIVED, labeller=label_both) +
   labs(title='Titanic') +
   labs(x="Age", y=paste("Fare")) +
   layer(data=df, 
@@ -31,23 +20,25 @@ ggplot() +
         stat_params=list(), 
         geom="point",
         geom_params=list(), 
+        #position=position_identity()
         position=position_jitter(width=0.3, height=0)
   )
-```  
-  
-![](./Plot_1.png)
 
+df <- data.frame(fromJSON(getURL(URLencode('129.152.144.84:5001/rest/native/?query="select * from titanic where sex is not null"'),httpheader=c(DB='jdbc:oracle:thin:@129.152.144.84:1521/PDBF15DV.usuniversi01134.oraclecloud.internal', USER='cs329e_kdk745', PASS='orcl_kdk745', MODE='native_mode', MODEL='model', returnDimensions = 'False', returnFor = 'JSON'), verbose = TRUE), ))
+df
+summary(df)
+head(df)
 
-#Plot 2  
-```
-#SQL: select * from titanic where sex is not null
+require(extrafont)
 
-#Plot:
-
+# Graph 2
 ggplot() + 
   coord_cartesian() + 
   scale_x_continuous() +
   scale_y_continuous() +
+  #facet_wrap(~SURVIVED) +
+  #facet_grid(.~SURVIVED, labeller=label_both) + # Same as facet_wrap but with a label.
+  #facet_grid(PCLASS~SURVIVED, labeller=label_both) +
   labs(title='Titanic') +
   labs(x="Age", y=paste("Fare")) +
   layer(data=df, 
@@ -56,21 +47,18 @@ ggplot() +
         stat_params=list(), 
         geom="point",
         geom_params=list(), 
+        #position=position_identity()
         position=position_jitter(width=0.3, height=0)
   )
-```  
-![](./Plot_2.png)
 
-#Plot 3
-```
-#SQL: select * from titanic where sex is not null
-
-#Plot:
-
+# Graph 3
 ggplot() + 
   coord_cartesian() + 
   scale_x_discrete() +
   scale_y_continuous() +
+  #facet_wrap(~SEX) +
+  #facet_grid(.~SURVIVED, labeller=label_both) + # Same as facet_wrap but with a label
+  #facet_grid(PCLASS~SURVIVED, labeller=label_both) +
   labs(title='Titanic') +
   labs(x="Survived", y=paste("Fare")) +
   layer(data=df, 
@@ -79,17 +67,10 @@ ggplot() +
         stat_params=list(), 
         geom="point",
         geom_params=list(), 
+        #position=position_identity()
         position=position_jitter(width=0.3, height=0)
   )
-```  
-![](./Plot_3.png)
-
-#Plot 4
-```
-#SQL: select * from titanic where sex is not null
-
-#Plot:
-
+# Graph 4
 ggplot() + 
   coord_cartesian() + 
   scale_x_discrete() +
@@ -103,17 +84,14 @@ ggplot() +
         stat_params=list(), 
         geom="point",
         geom_params=list(), 
+        #position=position_identity()
         position=position_jitter(width=0.3, height=0)
   )
-```  
-![](./Plot_4.png)
 
-#Plot 5
-```
-#SQL: Select * from Titanic where sex is not null and age <=10
 
-#Plot:
-
+#where sex is not null and age <=10
+df <- data.frame(fromJSON(getURL(URLencode('129.152.144.84:5001/rest/native/?query="select * from titanic where sex is not null and age <=10"'),httpheader=c(DB='jdbc:oracle:thin:@129.152.144.84:1521/PDBF15DV.usuniversi01134.oraclecloud.internal', USER='cs329e_kdk745', PASS='orcl_kdk745', MODE='native_mode', MODEL='model', returnDimensions = 'False', returnFor = 'JSON'), verbose = TRUE), ))
+# Graph 5
 ggplot() + 
   coord_cartesian() + 
   scale_x_discrete() +
@@ -127,34 +105,6 @@ ggplot() +
         stat_params=list(), 
         geom="point",
         geom_params=list(), 
+        #position=position_identity()
         position=position_jitter(width=0.3, height=0)
   )
-```
-![](./Plot_5.png)
-
-#Plot 6
-```
-#SQL: Where sex is not null and age > 50
-
-#Plot:
-
-ggplot() + 
-  coord_cartesian() + 
-  scale_x_continuous() +
-  scale_y_continuous() +
-  facet_grid(~SURVIVED,labeller=label_both) +
-  labs(title='Titanic') +
-  labs(x="Age", y=paste("Fare")) +
-  layer(data=df, 
-        mapping=aes(x=as.numeric(as.character(AGE)), y=as.numeric(as.character(FARE)), color=SEX), 
-        stat="identity", 
-        stat_params=list(), 
-        geom="point",
-        geom_params=list(), 
-        position=position_jitter(width=0.3, height=0)
-  )
-  
-```
-
-![](./Plot_6.png)
-
