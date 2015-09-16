@@ -8,39 +8,59 @@ output: html_document
 
 #Plot 1
 SQL: select * from titanic
+
+We plotted AGE onto the x-axis and FARE onto the y-axis. The color correlates to sex. We set the value "point" to the geom parameter so that our each record in our database would show up as one point.All of the data is used in this plot.From the plot, we can see that it looks like a vast majority of the people on the Titanic had a fare of less than 100.
 ```{r}
 source("../02 Visualizations/plot1.R",echo=TRUE)
 ```
+
 #Plot 2
 SQL: select * where from titanic where sex is not null
+
+This plot also depicts AGE on the x-axis and FARE on the y-axis. The color again correlates to sex, and the geom parameter is given the value "point." However, this plot is different from plot 1 since it omits all of the people where the sex is not specified in the database. From this plot, we can see that it looks as if there may be slightly more males than females, but it's a pretty even distribution.
+
 ```{r}
 source("../02 Visualizations/plot2.R",echo=TRUE)
 ```
+
 #Plot 3
 SQL: select * where from titanic where sex is not null
+
+In this plot, we want to plot the number of males and females that survived against the cost of their fare. In this plot, the color of the dots indicates if the person representing the data point survived or not. From this plot, we can see that most of the females survived. Out of the females that perished, a vast majority of them had a lower fare and may have been lower class. We can also see that the majority of the males on the Titanic perished.
 ```{r}
 source("../02 Visualizations/plot3.R",echo=TRUE)
 ```
+
 #Plot 4
 SQL: select * where from titanic where sex is not null
+
+This plot introduced facets. There are 6 facets that each tell a different story. The 3 facets on the left, show the plots of the people who perished against their fare, and each facet is filtered for a particular PCLASS. The right 3 facets are the same but for the pepole who survived. From this plot we can see many interesting things, such as the vast majority of the females in PCLASS 1 survived.
 ```{r}
 source("../02 Visualizations/plot4.R",echo=TRUE)
 ```
+
 #Plot 5
 SQL: select * where from titanic where sex is not null and age <= 10
+
+This plot has a similar structure as the plot above with the same facets, but the data only includes children ages 10 and under. From this data, you can see that almost all of the children from the upper 2 classes (PCLASS 1 and PCLASS 2) survived. The children that did perish were almost all in PCLASS 3, which tells a very sad story.
 ```{r}
 source("../02 Visualizations/plot5.R",echo=TRUE)
 ```
+
 #Plot 6
 SQL: select * where from titanic where sex is not null and age > 50
+
+In contrast to the plot above, we thought it would be interesting focus on the opposite end of the spectrum: people over the age of 50, so we filtered our data for those points. We only had one facet, divided it into 2 plots based on survival. From this plot, you can see that out of the people over the age of 50 who died, almost all of them were male. Very little males survived. It's also interesting to note that most of them had a fare below 100, yet almost all of the females survived.
 ```{r}
 source("../02 Visualizations/plot6.R",echo=TRUE)
 ```
+
 #Summary
 SQL: select * where from titanic where sex is not null
 ```{r}
 source("../01 Data/summary.R",echo=TRUE)
 ```
+
 #Subset
 SQL: select * where from titanic where sex is not null
 ```{r}
