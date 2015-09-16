@@ -18,7 +18,7 @@ ggplot() +
   scale_x_continuous() +
   scale_y_continuous() +
   labs(title='Titanic') +
-  labs(x="Age", y=paste("Fare")) +
+  labs(x="AGE", y=paste("FARE")) +
   layer(data=df, 
         mapping=aes(x=as.numeric(as.character(AGE)), y=as.numeric(as.character(FARE)), color=SEX), 
         stat="identity", 
