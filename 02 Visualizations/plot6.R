@@ -26,3 +26,4 @@ ggplot() +
         geom_params=list(), 
         position=position_jitter(width=0.3, height=0)
   )
+
