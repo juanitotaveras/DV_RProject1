@@ -7,7 +7,7 @@ output: html_document
 ----------------
 
 #Plot 1
-SQL: select * where from titanic
+SQL: select * from titanic
 ```{r}
 source("../02 Visualizations/plot1.R",echo=TRUE)
 ```
